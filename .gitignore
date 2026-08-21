@@ -67,6 +67,7 @@ __pycache__/
 # ==========================
 *.retry
 ansible/inventory.ini
+ansible/group_vars/app_server.yml
 # ==========================
 # AWS Keys
 # ==========================

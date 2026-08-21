@@ -73,6 +73,13 @@
       #   git:
       #     repo: https://github.com/<you>/campus-pulse.git
       #     dest: "{{ project_dir }}"
+    
+    - name: Ensure required variables are provided
+      assert:
+       that:
+        - rds_endpoint is defined
+        - db_password is defined
+      fail_msg: "rds_endpoint or db_password is missing."
 
     - name: Copy .env with RDS endpoint (edit before running)
       copy:
