@@ -8,6 +8,13 @@ const pool = new Pool({
   user: process.env.DB_USER || 'postgres',
   password: process.env.DB_PASSWORD || 'postgres',
   database: process.env.DB_NAME || 'campus_pulse',
+
+  ssl:
+    process.env.DB_HOST &&
+    !["localhost", "postgres"].includes(process.env.DB_HOST)
+      ? { rejectUnauthorized: false }
+      : false,
+
   max: 10,
   idleTimeoutMillis: 30000,
 });
