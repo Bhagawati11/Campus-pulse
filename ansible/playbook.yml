@@ -19,6 +19,7 @@
           - curl
           - gnupg
           - lsb-release
+          - git
         state: present
 
     - name: Add Docker GPG key
@@ -40,6 +41,12 @@
           - docker-compose-plugin
         state: present
         update_cache: yes
+    
+    - name: Ensure Docker service is running
+      service:
+        name: docker
+        state: started
+        enabled: yes
 
     - name: Add ubuntu user to docker group
       user:
@@ -54,10 +61,12 @@
         owner: ubuntu
         group: ubuntu
 
-    - name: Copy project files to server
-      synchronize:
-        src: ../campus-pulse/
-        dest: "{{ project_dir }}/"
+    - name: Clone Campus Pulse repository
+      git:
+        repo: https://github.com/Bhagawati11/Campus-pulse.git
+        dest: "{{ project_dir }}"
+        version: main
+        force: yes
       # Alternative if 'synchronize' (needs rsync) isn't available:
       # use 'git clone' of your GitHub repo here instead, e.g.:
       # - name: Clone repo
@@ -70,6 +79,9 @@
         dest: "{{ project_dir }}/.env"
         content: |
           DB_HOST={{ rds_endpoint }}
+          DB_PORT=5432
+          DB_NAME=campus_pulse
+          DB_USER=postgres
           DB_PASSWORD={{ db_password }}
         owner: ubuntu
         group: ubuntu

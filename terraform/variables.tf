@@ -12,7 +12,7 @@ variable "project_name" {
 variable "instance_type" {
   description = "EC2 instance type for the app server"
   type        = string
-  default     = "t2.micro" # free-tier eligible
+  default     = "t3.micro" # free-tier eligible
 }
 
 variable "db_instance_class" {

@@ -1,41 +1,73 @@
-# Node
+# ==========================
+# Node.js
+# ==========================
 node_modules/
 npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
-# Environment variables
+# ==========================
+# Environment Variables
+# ==========================
 .env
 .env.*
+!.env.example
 
+# ==========================
 # Logs
+# ==========================
 logs/
 *.log
 
-# Build folders
+# ==========================
+# Build Output
+# ==========================
 dist/
 build/
 
-# OS files
+# ==========================
+# Coverage
+# ==========================
+coverage/
+
+# ==========================
+# VS Code / IDE
+# ==========================
+.vscode/
+.idea/
+
+# ==========================
+# OS Files
+# ==========================
 .DS_Store
 Thumbs.db
 
-# VS Code
-.vscode/
-
+# ==========================
 # Terraform
+# ==========================
 .terraform/
 *.tfstate
 *.tfstate.*
 terraform.tfvars
+terraform.tfstate.backup
 
+# ==========================
+# Docker
+# ==========================
+*.pid
+
+# ==========================
 # Python
+# ==========================
 __pycache__/
 *.pyc
 
-# Docker
-*.pid
+# ==========================
+# Ansible
+# ==========================
+*.retry
 
-# Coverage
-coverage/
-
-# Misc
-.idea/
+# ==========================
+# AWS Keys
+# ==========================
+*.pem
