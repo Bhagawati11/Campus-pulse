@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Campus Pulse — Study Spaces</title>
+<link rel="stylesheet" href="style.css" />
+<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+</head>
+<body>
+  <nav class="topnav">
+    <div class="brand">Campus Pulse</div>
+    <div class="nav-links">
+      <a href="index.html" data-nav-link="index.html">Dashboard</a>
+      <a href="locations.html" data-nav-link="locations.html">Locations</a>
+      <a href="rooms.html" data-nav-link="rooms.html">Study Spaces</a>
+      <a href="events.html" data-nav-link="events.html">Events</a>
+      <a href="admin.html" data-nav-link="admin.html">Admin</a>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <h1>Find an empty classroom or lab</h1>
+    <p>Admin-marked availability — good for finding a quiet spot to self-study between classes.</p>
+  </header>
+
+  <main>
+    <section class="panel">
+      <div class="filter-bar">
+        <input type="text" id="roomSearchInput" placeholder="Search by room or building..." />
+        <div class="filter-chips" id="roomFilterChips">
+          <button class="chip active" data-filter="all">All</button>
+          <button class="chip" data-filter="empty">Empty</button>
+          <button class="chip" data-filter="occupied">Occupied</button>
+          <button class="chip" data-filter="classroom">Classrooms</button>
+          <button class="chip" data-filter="lab">Labs</button>
+        </div>
+      </div>
+      <div id="roomsList" class="cards"></div>
+      <p id="roomsEmptyState" class="empty-state" hidden>No rooms match your filters.</p>
+    </section>
+  </main>
+
+  <script src="shared.js"></script>
+  <script src="rooms.js"></script>
+</body>
+</html>

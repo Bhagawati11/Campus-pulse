@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Campus Pulse — Events</title>
+<link rel="stylesheet" href="style.css" />
+<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+</head>
+<body>
+  <nav class="topnav">
+    <div class="brand">Campus Pulse</div>
+    <div class="nav-links">
+      <a href="index.html" data-nav-link="index.html">Dashboard</a>
+      <a href="locations.html" data-nav-link="locations.html">Locations</a>
+      <a href="rooms.html" data-nav-link="rooms.html">Study Spaces</a>
+      <a href="events.html" data-nav-link="events.html">Events</a>
+      <a href="admin.html" data-nav-link="admin.html">Admin</a>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <h1>Events</h1>
+    <p>Fests, workshops, hackathons — post one or RSVP to what's coming up.</p>
+  </header>
+
+  <main class="events-layout">
+    <section class="panel">
+      <div class="panel-header">
+        <h2>Upcoming</h2>
+        <div class="tab-group">
+          <button class="tab active" data-tab="upcoming">Upcoming</button>
+          <button class="tab" data-tab="mine">My RSVPs</button>
+        </div>
+      </div>
+      <div id="eventsList" class="cards"></div>
+      <p id="eventsEmptyState" class="empty-state" hidden>Nothing here yet.</p>
+    </section>
+
+    <aside class="panel form-panel">
+      <h2>Post an event</h2>
+      <form id="eventForm">
+        <label>Title
+          <input type="text" id="eventTitle" placeholder="e.g. Hack Night" required />
+        </label>
+        <label>Location
+          <input type="text" id="eventLocation" list="venueList" placeholder="Choose or type a venue" />
+          <datalist id="venueList">
+            <option value="Architecture Building Auditorium Hall">
+            <option value="Mech Building Seminar Hall 1">
+            <option value="Mech Building Seminar Hall 2">
+            <option value="Lawn Area">
+            <option value="Canteen - Architecture Building Basement">
+          </datalist>
+        </label>
+        <label>Starts at
+          <input type="datetime-local" id="eventStarts" required />
+        </label>
+        <label>Description
+          <textarea id="eventDescription" placeholder="What's it about?"></textarea>
+        </label>
+        <button type="submit">Create Event</button>
+      </form>
+    </aside>
+  </main>
+
+  <script src="shared.js"></script>
+  <script src="events.js"></script>
+</body>
+</html>

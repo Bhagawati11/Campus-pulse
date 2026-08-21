@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Campus Pulse — Dashboard</title>
+<link rel="stylesheet" href="style.css" />
+<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+</head>
+<body>
+  <nav class="topnav">
+    <div class="brand">Campus Pulse</div>
+    <div class="nav-links">
+      <a href="index.html" data-nav-link="index.html">Dashboard</a>
+      <a href="locations.html" data-nav-link="locations.html">Locations</a>
+      <a href="rooms.html" data-nav-link="rooms.html">Study Spaces</a>
+      <a href="events.html" data-nav-link="events.html">Events</a>
+      <a href="admin.html" data-nav-link="admin.html">Admin</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <h1>Live campus, right now</h1>
+    <p>Real-time crowd levels and what's happening around campus today.</p>
+  </header>
+
+  <main>
+    <section class="stat-strip" id="statStrip">
+      <div class="stat-card">
+        <span class="stat-value" id="statTotalPeople">—</span>
+        <span class="stat-label">People checked in</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-value" id="statBusiest">—</span>
+        <span class="stat-label">Busiest spot</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-value" id="statQuietest">—</span>
+        <span class="stat-label">Quietest spot</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-value" id="statEventsToday">—</span>
+        <span class="stat-label">Events upcoming</span>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-header">
+        <h2>Occupancy overview</h2>
+        <a href="locations.html" class="link-btn">View all locations →</a>
+      </div>
+      <canvas id="occupancyChart" height="90"></canvas>
+    </section>
+
+    <section class="panel">
+      <div class="panel-header">
+        <h2>Happening soon</h2>
+        <a href="events.html" class="link-btn">View all events →</a>
+      </div>
+      <div id="upcomingEvents" class="cards"></div>
+    </section>
+  </main>
+
+  <script src="shared.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>

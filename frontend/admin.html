@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Campus Pulse — Admin</title>
+<link rel="stylesheet" href="style.css" />
+<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+</head>
+<body>
+  <nav class="topnav">
+    <div class="brand">Campus Pulse</div>
+    <div class="nav-links">
+      <a href="index.html" data-nav-link="index.html">Dashboard</a>
+      <a href="locations.html" data-nav-link="locations.html">Locations</a>
+      <a href="rooms.html" data-nav-link="rooms.html">Study Spaces</a>
+      <a href="events.html" data-nav-link="events.html">Events</a>
+      <a href="admin.html" data-nav-link="admin.html">Admin</a>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <h1>Admin</h1>
+    <p>Manage locations and review recent check-in activity.</p>
+  </header>
+
+  <main>
+    <section class="panel form-panel admin-add-panel">
+      <h2>Add a location</h2>
+      <form id="addLocationForm" class="inline-form">
+        <input type="text" id="newLocationName" placeholder="Location name" required />
+        <input type="number" id="newLocationCapacity" placeholder="Capacity" min="1" required />
+        <button type="submit">Add</button>
+      </form>
+    </section>
+
+    <section class="panel">
+      <div class="panel-header">
+        <h2>Locations</h2>
+      </div>
+      <table class="data-table" id="locationsTable">
+        <thead>
+          <tr><th>Name</th><th>Capacity</th><th>Current occupancy</th><th></th></tr>
+        </thead>
+        <tbody id="locationsTableBody"></tbody>
+      </table>
+    </section>
+
+    <section class="panel form-panel admin-add-panel">
+      <h2>Add a study room</h2>
+      <form id="addRoomForm" class="inline-form">
+        <input type="text" id="newRoomName" placeholder="Room name (e.g. Room 305)" required />
+        <input type="text" id="newRoomBuilding" placeholder="Building" required />
+        <select id="newRoomType">
+          <option value="classroom">Classroom</option>
+          <option value="lab">Lab</option>
+        </select>
+        <button type="submit">Add</button>
+      </form>
+    </section>
+
+    <section class="panel">
+      <div class="panel-header">
+        <h2>Study rooms</h2>
+      </div>
+      <table class="data-table" id="roomsTable">
+        <thead>
+          <tr><th>Name</th><th>Building</th><th>Type</th><th>Status</th><th></th></tr>
+        </thead>
+        <tbody id="roomsTableBody"></tbody>
+      </table>
+    </section>
+
+    <section class="panel">
+      <div class="panel-header">
+        <h2>Recent check-in activity</h2>
+      </div>
+      <table class="data-table" id="checkinsTable">
+        <thead>
+          <tr><th>User</th><th>Location</th><th>Checked in</th><th>Checked out</th></tr>
+        </thead>
+        <tbody id="checkinsTableBody"></tbody>
+      </table>
+      <p id="checkinsEmptyState" class="empty-state" hidden>No check-in activity yet.</p>
+    </section>
+  </main>
+
+  <script src="shared.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

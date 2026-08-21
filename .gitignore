@@ -1,0 +1,41 @@
+# Node
+node_modules/
+npm-debug.log*
+
+# Environment variables
+.env
+.env.*
+
+# Logs
+logs/
+*.log
+
+# Build folders
+dist/
+build/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+terraform.tfvars
+
+# Python
+__pycache__/
+*.pyc
+
+# Docker
+*.pid
+
+# Coverage
+coverage/
+
+# Misc
+.idea/
