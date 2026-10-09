@@ -23,9 +23,9 @@ jobs:
         working-directory: backend
         run: npm ci
    
-      - name: Security audit
+      - name: Production dependency security audit
         working-directory: backend
-        run: npm audit --audit-level=high
+        run: npm audit --omit=dev
 
       - name: Run backend tests
         working-directory: backend
